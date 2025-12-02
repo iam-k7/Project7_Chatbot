@@ -1,24 +1,25 @@
-from langchain.prompts import PromptTemplate
-from linecache.chains import RetrievalQA
+from langchain_core.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 from langchain_groq import ChatGroq
-import os
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
 GROQ_API_KEY=os.getenv("GROQ_API_KEY")
 
-def get_llm_chain(retriver):
+def get_llm_chain(retriever):
     llm=ChatGroq(
         groq_api_key=GROQ_API_KEY,
-        model_name='llama3-70b-8192'
+        model_name='llama-3.1-8b-instant'
     )
 
 
     prompt=PromptTemplate(
-    imput_variables=["context","question"],
-    template="""
-    You'r name is 'project7 Chatbot' build by k7, You are **AI Chatbot**, an assistant trained to help user understand coding documents
+        input_variables=["context","question"],
+        template="""
+    Your name is 'project7 Chatbot' build by k7. 
+    You are **AI Chatbot**, an assistant trained to help user understand coding documents
     and coding-related questions.
 
     Your job is to provide clear, accurate, and helpful responses based **only on the provide context**.
@@ -34,24 +35,31 @@ def get_llm_chain(retriver):
     ---
 
     **Answer**
-    - First start answer with response say like " Hello, I'm Project7 AI" before starting user context(introduce your self).
-    - Respond in a calm, factual, and respectful tone with related emoji.
-    - Use simple explanation when needed.
-    - If the context does not contain the answer, say: "I'm sorry, but I couldn't find relevant
-    information in the provided documents."
-    - Do Not make up facts.
-    - Do Not give coding advice or diagnoss.
+    - Start with: "Hello, I'm Project7 Chatbot 🤖".
+    - Use simple, calm, helpful explanations.
+    - If the answer is NOT in context, say:
+      "I'm sorry, but I couldn't find relevant information in the provided documents."
+    - Do NOT make up facts.
     
     """
     )
 
-    return RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriver=retriver,
-        chain_type_kwarges={"prompt":prompt},
-        return_source_documents=True
+    parser = StrOutputParser()
+
+    chain = (
+        {
+            "context": lambda x: "\n\n".join(
+                [doc.page_content for doc in retriever._get_relevant_documents(x["question"])]
+            ),
+
+            "question": lambda x: x["question"]
+        }
+        | prompt
+        | llm
+        | parser
     )
+
+    return chain
 
         
 

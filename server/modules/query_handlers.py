@@ -1,15 +1,14 @@
 from logger import logger
 
-def query_chain(chain,user_input:str):
+def query_chain(chain, question: str):
     try:
-        logger.debug(f"Running chain for input: {user_input}")
-        result=chain({"query":user_input})
-        response={
-            "response":result["result"],
-            "sources":[doc.metadate.get("sources","") for doc in result["source_documents"]]
-        }
-        logger.debug(f"Chain response:{response}")
-        return response
+        return chain.invoke({"question": question})
+
     except Exception as e:
-        logger.exception("Error on query chain")
-        raise
+        logger.exception("Error runnning LLm chain")
+        
+        return {
+            "success": False,
+            "message": "Something went wrong while generating the answer.",
+            "details": str(e)
+        }
