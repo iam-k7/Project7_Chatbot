@@ -27,22 +27,24 @@ Export your entire chatbot conversation with one click.
 # 🧱 Project Structure
 
 Project7_Chatbot/
+
+Project7_Chatbot/
+├── client/               # Streamlit frontend
+│   ├── app.py
+│   ├── components/
+│   ├── utils/
+│   └── config.py
 │
-├── client/ # Streamlit frontend
-│ ├── app.py # Main Streamlit app
-│ ├── components/ # UI components (chat, uploader, history)
-│ ├── utils/ # API request helpers
-│ └── config.py # API base URL
+├── server/               # FastAPI backend
+│   ├── main.py
+│   ├── routes/
+│   ├── modules/
+│   └── middlewares/
 │
-├── server/ # FastAPI backend
-│ ├── main.py # Backend entry point
-│ ├── routes/ # API routes (ask, upload_pdfs)
-│ ├── modules/ # Embeddings, LLM, loaders, handlers
-│ └── middlewares/ # Error and exception handling
-│
-├── .gitignore # Git ignore rules
-├── requirements.txt # Dependency list
-└── README.md # Project documentation
+├── .gitignore
+├── requirements.txt
+└── README.md
+
 
 yaml
 Copy code
@@ -99,7 +101,9 @@ streamlit run app.py
 Frontend runs at:
 👉 http://localhost:8501
 
+
 ---
+
 
 ## ⚙️ Configuration
 
@@ -153,13 +157,3 @@ Happy building 🎉
 yaml
 Copy code
 
----
-
-## If you want:
-
-✅ badges  
-✅ roadmap  
-✅ API docs  
-✅ deployment guide  
-
-Just tell me **“add badges”** or **“add deployment section”**, and I’ll extend the README.md
