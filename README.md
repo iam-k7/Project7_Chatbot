@@ -24,42 +24,45 @@ Export your entire chatbot conversation with one click.
 
 ---
 
-# 🧱 Project Structure
+    # 🧱 Project Structure
 
-Project7_Chatbot/
+    ```bash
+     Project7_Chatbot/
 
-Project7_Chatbot/
-├── client/               # Streamlit frontend
-│   ├── app.py
-│   ├── components/
-│   ├── utils/
-│   └── config.py
-│
-├── server/               # FastAPI backend
-│   ├── main.py
-│   ├── routes/
-│   ├── modules/
-│   └── middlewares/
-│
-├── .gitignore
-├── requirements.txt
-└── README.md
+     Project7_Chatbot/
+     ├── client/               # Streamlit frontend
+     │   ├── app.py
+     │   ├── components/
+     │   ├── utils/
+     │   └── config.py
+     │
+     ├── server/               # FastAPI backend
+     │   ├── main.py
+     │   ├── routes/
+     │   ├── modules/
+     │   └── middlewares/
+     │
+     ├── .gitignore
+     ├── requirements.txt
+     └── README.md
 
 
 yaml
 Copy code
 
----
+
+
 
 # 🚀 Getting Started
 
-## 1️⃣ Clone the Repository
+
+    ## 1 Clone the Repository
 
     ```bash
     git clone https://github.com/iam-k7/Project7_Chatbot.git
     cd Project7_Chatbot
     
-## 2️⃣ Create & Activate Virtual Environment
+## 2️ Create & Activate Virtual Environment
 
 bash
 Copy code
@@ -73,14 +76,14 @@ bash
 Copy code
 source venv/bin/activate
 
-## 3️⃣ Install Dependencies
+## 3️ Install Dependencies
 
 bash
 Copy code
 pip install -r requirements.txt
 🖥️ Run the Application
 
-## 4️⃣ Start the FastAPI Backend
+## 4️ Start the FastAPI Backend
 
 bash
 Copy code
@@ -92,7 +95,7 @@ Backend runs at:
 Interactive API docs:
 👉 http://127.0.0.1:8000/docs
 
-## 5️⃣ Start the Streamlit Frontend
+## 5️ Start the Streamlit Frontend
 
 bash
 Copy code
