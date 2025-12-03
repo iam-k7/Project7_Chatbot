@@ -24,10 +24,8 @@ Export your entire chatbot conversation with one click.
 
 ---
 
-    # 🧱 Project Structure
-
-    ```bash
-     Project7_Chatbot/
+0. **Project Structure**
+   ```bash
 
      Project7_Chatbot/
      ├── client/               # Streamlit frontend
@@ -47,22 +45,17 @@ Export your entire chatbot conversation with one click.
      └── README.md
 
 
-yaml
-Copy code
-
-
-
 
 # 🚀 Getting Started
 
 
-    ## 1 Clone the Repository
+## 1. Clone the Repository
 
     ```bash
     git clone https://github.com/iam-k7/Project7_Chatbot.git
     cd Project7_Chatbot
     
-## 2️ Create & Activate Virtual Environment
+## 2️. Create & Activate Virtual Environment
 
 bash
 Copy code
@@ -76,14 +69,14 @@ bash
 Copy code
 source venv/bin/activate
 
-## 3️ Install Dependencies
+## 3️. Install Dependencies
 
 bash
 Copy code
 pip install -r requirements.txt
 🖥️ Run the Application
 
-## 4️ Start the FastAPI Backend
+## 4️. Start the FastAPI Backend
 
 bash
 Copy code
@@ -95,7 +88,7 @@ Backend runs at:
 Interactive API docs:
 👉 http://127.0.0.1:8000/docs
 
-## 5️ Start the Streamlit Frontend
+## 5️. Start the Streamlit Frontend
 
 bash
 Copy code
