@@ -1,100 +1,162 @@
-# 🚀 Coding Assistant Chatbot
+# 🚀 Project7_Chatbot
 
-An AI-powered Coding Assistant that lets you:
-
-- 📤 Upload PDFs  
-- 🤖 Ask questions about the content  
-- 🧠 Get LLM-powered answers (RAG + embeddings)  
-- 📥 Download your chat history  
-- 🧩 Use a clean Streamlit UI + FastAPI backend  
-
-This project is built using **FastAPI**, **Streamlit**, **LangChain**, **Pinecone**, and **HuggingFace Embeddings**.
+An AI-powered chatbot application that allows users to upload PDFs, ask questions about the content, and receive context-aware answers using Retrieval-Augmented Generation (RAG).  
+This project uses **FastAPI** for the backend, **Streamlit** for the frontend, and **LangChain + vector embeddings** for intelligent document querying.
 
 ---
 
-# 🎥 Demo (GIF)
+# ✨ Features
 
-Below is an AI-generated demonstration of how the app works:
+### 📄 PDF Upload  
+Upload one or multiple PDF files for processing.
 
-![Demo GIF](A_GIF_demonstrates_an_AI-driven_Coding_Assistant_C.png)
+### 🧠 Document-Aware Q&A  
+Ask questions about your PDFs and get accurate answers using embeddings + vector search.
 
----
+### ⚡ FastAPI Backend  
+Handles ingestion, embeddings, Pinecone/vector-db operations, and question answering.
 
-# 🧠 Features
+### 🎨 Streamlit Frontend  
+A clean, modular UI with components for chat, upload, and history management.
 
-### ✅ Upload & process PDFs  
-Documents are embedded and stored in Pinecone for semantic search.
-
-### ✅ Chat with your documents  
-Ask any question and get accurate answers powered by RAG (Retrieval-Augmented Generation).
-
-### ✅ Streamlit UI  
-Beautiful modular UI with uploader, chat component, and history downloader.
-
-### ✅ FastAPI backend  
-Handles PDF ingestion, vector DB updates, and real-time LLM inference.
-
-### ✅ Chat history download  
-Export your conversation as a text or JSON file.
+### 💾 Download Chat History  
+Export your entire chatbot conversation with one click.
 
 ---
 
-# 📁 Project Structure
+    # 🧱 Project Structure
 
-Project7/
-│
-├── client/ # Streamlit UI
-│ ├── app.py # Streamlit entry point
-│ ├── components/ # UI components (chat, upload, history)
-│ ├── utils/ # API client helpers (requests)
-│ └── config.py # API URL config
-│
-├── server/ # FastAPI backend
-│ ├── main.py # FastAPI entry point
-│ ├── modules/ # LLM, embeddings, loaders, handlers
-│ ├── routes/ # API endpoints (/ask, /upload_pdfs)
-│ └── middlewares/ # Exception handlers
-│
-├── .gitignore # Git ignored files
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+    ```bash
+     Project7_Chatbot/
+
+     Project7_Chatbot/
+     ├── client/               # Streamlit frontend
+     │   ├── app.py
+     │   ├── components/
+     │   ├── utils/
+     │   └── config.py
+     │
+     ├── server/               # FastAPI backend
+     │   ├── main.py
+     │   ├── routes/
+     │   ├── modules/
+     │   └── middlewares/
+     │
+     ├── .gitignore
+     ├── requirements.txt
+     └── README.md
 
 
----
+yaml
+Copy code
 
-# 🛠️ Tech Stack
 
-### **Frontend**
-- Streamlit  
-- Custom UI components  
-- Clean and modular interface  
 
-### **Backend**
-- FastAPI  
-- Pydantic  
-- LangChain  
-- Pinecone Vector DB  
-- HuggingFace Embeddings  
 
-### **AI**
-- RAG (Retrieval-Augmented Generation)  
-- Context-aware LLM responses  
+# 🚀 Getting Started
 
----
 
-# ▶️ Getting Started
+    ## 1 Clone the Repository
 
-## **1️⃣ Create virtual environment**
+    ```bash
+    git clone https://github.com/iam-k7/Project7_Chatbot.git
+    cd Project7_Chatbot
+    
+## 2️ Create & Activate Virtual Environment
 
-```bash
+bash
+Copy code
 python -m venv venv
+Windows
+bash
+Copy code
+venv\Scripts\activate
+macOS/Linux
+bash
+Copy code
+source venv/bin/activate
 
-venv\Scripts\activate           # Windows
+## 3️ Install Dependencies
 
-pip install -r requirements.txt # Install dependencies
+bash
+Copy code
+pip install -r requirements.txt
+🖥️ Run the Application
 
-cd server                       # Start FastAPI backend
+## 4️ Start the FastAPI Backend
+
+bash
+Copy code
+cd server
 uvicorn main:app --reload --port 8000
+Backend runs at:
+👉 http://127.0.0.1:8000
 
-Uvicorn running on http://127.0.0.1:8000
+Interactive API docs:
+👉 http://127.0.0.1:8000/docs
+
+## 5️ Start the Streamlit Frontend
+
+bash
+Copy code
+cd ../client
+streamlit run app.py
+Frontend runs at:
+👉 http://localhost:8501
+
+
+---
+
+
+## ⚙️ Configuration
+
+client/config.py
+Set the API base URL:
+
+python
+Copy code
+API_URL = "http://127.0.0.1:8000"
+Modify only if your backend uses a different port.
+
+## 📦 .gitignore
+
+Includes:
+
+__pycache__
+
+Virtual environments (.venv, venv/)
+
+.env files (API keys, secrets)
+
+Build / compiled artifacts
+
+IDE files
+
+Ensures clean commits with no sensitive information.
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+Fork this repository
+
+Create a new feature branch
+
+Commit changes with clear messages
+
+Open a Pull Request
+
+## ⭐ Support the Project
+If you found this helpful, please give the repo a star ⭐ on GitHub — it motivates future improvements!
+
+## 📜 License
+
+This project is open-source and free to use.
+You may add a LICENSE file (MIT recommended).
+
+Thanks for checking out Project7_Chatbot!
+Happy building 🎉
+
+yaml
+Copy code
 
