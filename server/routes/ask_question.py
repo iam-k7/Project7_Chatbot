@@ -6,16 +6,20 @@ from langchain_core.documents import Document
 from langchain_core.retrievers import BaseRetriever
 from langchain_huggingface import HuggingFaceEmbeddings
 from pinecone import Pinecone
-from pydantic import Field
+from pydantic import Field, BaseModel
 from typing import List, Optional
 from logger import logger
 import os
 
 router=APIRouter()
 
+class AskRequest(BaseModel):
+    question: str
+
 @router.post("/ask/")
-async def ask_question(question:str=Form(...)):
+async def ask_question(payload: AskRequest):
     try:
+        question = payload.question
         logger.info(f"User query:{question}")
 
         # embed model + pinecone setup 
@@ -60,7 +64,8 @@ async def ask_question(question:str=Form(...)):
         result = chain.invoke({"question": question})
 
         logger.info("Query success")
-        return result
+        result = chain.invoke({"question": question})
+        return {"response": result}
 
     except Exception as e:
         logger.exception("Error processing question")

@@ -19,7 +19,7 @@ def home():
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],       # allow all origins
-    allow_credentials=["*"],   # must be false when using "*"
+    allow_credentials=True,  
     allow_methods=["*"],
     allow_headers=["*"]
 )
